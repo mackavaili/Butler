@@ -10,7 +10,6 @@ int playerHealth = 10, turns = 0, blockingNumber, attackNumber;
 int main() {
     // seed the random number generator
     srand (time (0));
-    bool keepPlaying = true;
 
     // welcome the player
     cout << "Welcome. What is your name?\n>>";
@@ -39,7 +38,7 @@ int main() {
             cout << "Sword and shield is your weapon. You choose to be a Knight.\nYou will start with " << playerHealth << " health.\n";
             playerClass = "Knight";
         } else {
-            cout << "That is not one of the options.\nYou have failed!\n";
+            cout << "!! That is not one of the options !!\n!! You have failed !!\n";
             return 0;
         }
 
@@ -57,9 +56,11 @@ int main() {
     if (firstChoise == 1) {
         cout << "You want to attack.\n\nYou draw your weapon and as you do the Necromancer turns to walk away. Your stike misses.\n";
         cout << "The Necromancer draws a short blade.\n";
-        }
-        else if (firstChoise == 2) {
+        } else if (firstChoise == 2) {
             cout << "You want to get closer.\n\nAs you walk closer to the Necromancer your shadow is cast on the wall.\n";
+            cout << "The Necromancer turns and draws a short blade.\n";
+        } else {
+            cout << "!! That was not one of the options !!\n";
             cout << "The Necromancer turns and draws a short blade.\n";
         }
         
@@ -92,7 +93,7 @@ int main() {
                 // otherwise, subtract attack value from health
                 } else if (playerHealth -= attackNumber) {
                     turns++;
-                    cout << "\nYou were hit with " << attackNumber << " hit points.\n";
+                    cout << "\nYou were hit and lost " << attackNumber << " hit points.\n";
                     cout << "Your health is now at " << playerHealth << ".\n\n";
                 //  used for testing
                 //  cout << "The blocking number was " << blockingNumber << ".\n";
@@ -105,11 +106,12 @@ int main() {
         
     // if health is greater than 0, congratulate player
     if (playerHealth >= 1) {
-    cout << "The Necromancer put his blade away and ask for mercy.\n";
-    cout << "You survived this encounter. Congratulations " << playerName << "!\n";
-    // otherwise, tell the player they're dead.
-    } else if (playerHealth <= 0) {
-    cout << "You were killed by the Necromancer. You are not the dovahkiin.\n";
-    }
+            cout << "The Necromancer put his blade away and ask for mercy.\n";
+            cout << "You survived this encounter. Congratulations " << playerName << "!\n";
+        // otherwise, tell the player they're dead.
+        } else if (playerHealth <= 0) {
+            cout << "You were killed by the Necromancer. You are not the dovahkiin.\n";
+            cout << "[  END GAME  ]\n";
+        }
     return 0;
 }
