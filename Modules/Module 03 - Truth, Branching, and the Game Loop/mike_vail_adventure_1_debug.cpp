@@ -70,7 +70,7 @@ int main() {
     // start the loop and add 1 to turns
     // keep looping while health is greater than zero
     // and fewer than 4 turns have happened
-    int randomNumTurns = rand() % 4;
+    int randomNumTurns = (rand() % 4) + 1;
 
     // test to see what the random number of turns is
     // cout << "turns" << randomNumTurns << " .\n\n";
@@ -151,12 +151,12 @@ int main() {
         }
 
     // not sure if this counts as a debug mode
-    cout << "Would you like to enter [ DEBUG ] mode?\n";
+    cout << "Would you like to enter recap mode?\n";
     cout << "[  yes  ] or [  no  ]\n";
-    string debugMode;
-    cin >> debugMode;
+    string recapMode;
+    cin >> recapMode;
 
-    if (debugMode == "yes") {
+    if (recapMode == "yes") {
       cout << "\nYou played as a " << playerClass << ".\n\n";
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
       cout << "You played for a total of " << turnNumber << " turn(s).\n";
