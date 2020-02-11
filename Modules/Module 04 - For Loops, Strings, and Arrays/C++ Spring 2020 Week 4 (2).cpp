@@ -139,7 +139,11 @@ int main () {
 
 							}
 					}
-
+					else if(choice == 7) {
+						//	Using a collection initializer
+						string food[] = {"Pizza", "Chezburger", "Soylent", "Bananas", "Tacos"};
+						cout << "You should eat " << food[rand() % 5] << " for dinner!\n";
+					}
 
 					}while(choice != 0);
 
