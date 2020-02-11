@@ -29,13 +29,13 @@ int main ()
   string jumble = theWord;    // jumbled version of WORD
   int length = jumble.size();
   for (int i = 0; i < length; ++i)
-  {
-    int index1 = (rand() % length);
-    int index2 = (rand() % length);
-    char temp = jumble[index1];
-    jumble[index1] = jumble[index2];
-    jumble[index2] = temp;
-  }
+	  {
+	    int index1 = (rand() % length);
+	    int index2 = (rand() % length);
+	    char temp = jumble[index1];
+	    jumble[index1] = jumble[index2];
+	    jumble[index2] = temp;
+	  }
 
   cout << "\t\tWelcome to Word Jumble\n\n";
   cout << "Unscramble the letters to make a word.\n";
@@ -63,9 +63,9 @@ int main ()
   }
 
   if (guess == theWord)
-  {
-    cout << "\nThat's it! You guessed it!\n";
-  }
+	  {
+	    cout << "\nThat's it! You guessed it!\n";
+	  }
 
   cout << "\n\nThanks for playing.\n";
   return 0;
