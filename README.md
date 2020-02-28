@@ -6,4 +6,4 @@ Dawson, M., (2014). _[Beginning C++ Through Game Programming (4th ed.)]_ [LINK](
 
 Sitemap: [Chapters](https://github.com/makavaile/Butler/tree/master/Book%20cpp%20Programs)
 
-## [License: MIT](https://opensource.org/licenses/MIT)
+## <sup>[License: MIT](https://opensource.org/licenses/MIT)</sup>
