@@ -1,4 +1,4 @@
-// Hero;s Inventory 3.0
+// Hero's Inventory 3.0
 // Demonstrates iterators
 
 #include <iostream>
