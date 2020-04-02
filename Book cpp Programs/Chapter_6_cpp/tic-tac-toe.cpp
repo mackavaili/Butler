@@ -17,15 +17,15 @@ const char NO_ONE = 'N';;
 
 //	function prototypes
 void instructions();
-char askYesNo(string quetion);
+char askYesNo(string question);
 int askNumber(string question, int high, int low = 0);
 char humanPiece();
 char opponent(char piece);
 void displayBoard(const vector<char>& board);
 char winner(const vector<char>& board);
-bool isLegal(const vector<char>& board, char human);
+bool isLegal(const vector<char>& board, int move);
 int humanMove(const vector<char>& board, char human);
-int computerMove(const vector<char>& board, char computer);
+int computerMove(vector<char> board, char computer);
 void announceWinner(char winner, char computer, char human);
 
 //	main function
@@ -62,6 +62,7 @@ int main()
     return 0;
 }
 
+// functions
 void instructions()
 {
 	cout << "Welcome to the ultimate man-machine showdown: Tic-Tac-Toe.\n";
@@ -149,7 +150,7 @@ char winner(const vector<char>& board)
 									 {1, 4, 7},
 									 {2, 5, 8},
 									 {0, 4, 8},
-									 {2, 4, 6}, };
+									 {2, 4, 6} };
 
 	const int TOTAL_ROWS = 8;
 
@@ -173,7 +174,8 @@ char winner(const vector<char>& board)
 	return NO_ONE;
 }
 
-inline bool isLegal(int move, const vector<char>& board) {
+inline bool isLegal(int move, const vector<char>& board)
+{
 	return (board[move] == EMPTY);
 }
 
@@ -200,8 +202,11 @@ int computerMove(vector<char> board, char computer)
 	{
 		if (isLegal(move, board))
 		{
+            //  try move
 			board[move] = computer;
+            //  test for winner
 			found = winner(board) == computer;
+            //  undo move
 			board[move] = EMPTY;
 		}
 		if (!found)
@@ -221,8 +226,11 @@ int computerMove(vector<char> board, char computer)
 		{
 			if (isLegal(move, board))
 			{
+                //  try move
 				board[move] = human;
+                // test for winner
 				found = winner(board) == human;
+                //  undo move
 				board[move] = EMPTY;
 			}
 			if (!found)
