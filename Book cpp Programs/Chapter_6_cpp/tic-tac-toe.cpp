@@ -35,28 +35,49 @@ int main()
     const int NUM_SQUARES = 9;
     vector<char> board(NUM_SQUARES, EMPTY);
 
+    //  this is pulling from void instructions() and showing how to play
     instructions();
+    //  this is asking if the player wants to go first from char humanPiece()
+    //  if yes, the player is X
+    //  if no, player is O
     char human = humanPiece();
+    //  this is making the computer the opposite of the player
+    //  char opponent(char piece)
     char computer = opponent(human);
+    //  X gos first, regardless of what the player picks
     char turn = X;
+    //  display the tic-tac-toe board
     displayBoard(board);
 
+    //  this is checking 3 spots on the board at a time
+    //  to see if there is a winner after every move
+    //  when winner != NO_ONE move to announceWinner
     while (winner(board) == NO_ONE)
     {
         if (turn == human)
         {
+            //  this pulls from int humanMove(const vector<char>& board, char human)
+            //  asked were the player would like to move then checks if move can be made
+            //  after move is made it returns back to int move
             move = humanMove(board, human);
             board[move] = human;
         }
         else
         {
+            // pulling from int computerMove(vector<char> board, char computer)
+            //  where its checking !found for what move to make starting with the four
+            //  corners or the middle to see if it can win, and if empty take it
+            //  if it can't win, move to block player
             move = computerMove(board, computer);
             board[move] = computer;
         }
+        //  display the tic-tac-toe board
         displayBoard(board);
+        //  pulling from char opponent(char piece)
+        //  if X just played, its 0's turn
         turn = opponent(turn);
     }
-
+    // pulls from void announceWinner and depending says who won or if its a tie
     announceWinner(winner(board), computer, human);
 
     return 0;

@@ -1,6 +1,5 @@
-// Tic-Tac-Toe 2.0
+// Tic-Tac-Toe with pointers
 // Plays the game of tic-tac-toe against a human opponent
-// Uses pointers instead of refernces for function parameters
 
 #include <iostream>
 #include <string>
@@ -71,7 +70,7 @@ void instructions()
 
     cout << "Make your move known by entering a number, 0 - 8.  The number\n";
     cout << "corresponds to the desired board position, as illustrated:\n\n";
-    
+
     cout << "       0 | 1 | 2\n";
     cout << "       ---------\n";
     cout << "       3 | 4 | 5\n";
@@ -193,11 +192,11 @@ int humanMove(const vector<char>* const pBoard, char human)
 }
 
 int computerMove(vector<char> board, char computer)
-{ 
+{
     unsigned int move = 0;
     bool found = false;
 
-    //if computer can win on next move, that’s the move to make
+    //if computer can win on next move, thatï¿½s the move to make
     while (!found && move < board.size())
     {
         if (isLegal(move, &board))
@@ -205,7 +204,7 @@ int computerMove(vector<char> board, char computer)
 			//try move
             board[move] = computer;
             //test for winner
-            found = winner(&board) == computer;   
+            found = winner(&board) == computer;
 			//undo move
             board[move] = EMPTY;
         }
@@ -215,7 +214,7 @@ int computerMove(vector<char> board, char computer)
             ++move;
         }
     }
-  
+
     //otherwise, if opponent can win on next move, that's the move to make
     if (!found)
     {
@@ -227,11 +226,11 @@ int computerMove(vector<char> board, char computer)
             if (isLegal(move, &board))
             {
 				//try move
-				board[move] = human;  
+				board[move] = human;
 				//test for winner
-                found = winner(&board) == human;     
+                found = winner(&board) == human;
 			    //undo move
-				board[move] = EMPTY;        
+				board[move] = EMPTY;
             }
 
             if (!found)
@@ -288,4 +287,3 @@ void announceWinner(char winner, char computer, char human)
         cout << "Celebrate... for this is the best you will ever achieve.\n";
 	}
 }
-
