@@ -1,5 +1,6 @@
 // Tic-Tac-Toe
 // Plays the game of tic-tac-toe against a human opponent
+// Mike Vail mvail@butlercc.edu
 
 #include <iostream>
 #include <string>
