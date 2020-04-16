@@ -11,6 +11,7 @@ public:
 	void Talk();
 	void Eat(int food = 4);
 	void Play(int fun = 4);
+	void GetValues() const;
 
 private:
 	int m_Hunger;
@@ -53,6 +54,31 @@ void Critter::Talk()
 		cout << "happy.\n";
 	}
 
+	cout << "I am ";
+	if (m_Hunger > 10) {
+		cout << "very much";
+	}
+	else if (m_Hunger > 5) {
+		cout << "very";
+	}
+	else {
+		cout << "not at all";
+	}
+	cout << " hungry.\n";
+
+	cout << "I am ";
+	if (m_Boredom > 10) {
+		cout << "very much";
+	}
+	else if (m_Boredom > 5) {
+		cout << "very";
+	}
+	else {
+		cout << "not at all";
+	}
+	cout << " bored.\n";
+
+
 	PassTime();
 }
 
@@ -78,6 +104,12 @@ void Critter::Play(int fun)
 	}
 
 	PassTime();
+}
+
+void Critter::GetValues() const
+{
+	cout << "Hunger level is: " << m_Hunger << endl;
+	cout << "Bordom level is: " << m_Boredom << endl;
 }
 
 int main() {
@@ -107,6 +139,9 @@ int main() {
 				break;
 			case 3:
 				crit.Play();
+				break;
+			case 4:
+				crit.GetValues();
 				break;
 			default:
 				cout << "\nSorry, but " << choice << " isn't a valid choice.\n";
