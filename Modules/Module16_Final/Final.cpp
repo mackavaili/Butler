@@ -1,8 +1,11 @@
+//	Mike Vail (mvail@butlercc.edu)
+//	Beginning C++/Game Programming - SP20
+// 	Module 16 - Final (Theme - DOOM)
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <cctype>
-//#include <chrono>
 #include <thread>
 using namespace std;
 
